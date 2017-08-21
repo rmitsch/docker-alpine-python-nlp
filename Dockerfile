@@ -6,7 +6,7 @@ FROM python:3.5-alpine
 ##########################################
 
 # Copy file containing commands for installing numpy versus openblas.
-COPY setup/install_numpy_with_openblas.sh /tmp/install_numpy_with_openblas.sh
+COPY install_numpy_with_openblas.sh /tmp/install_numpy_with_openblas.sh
 
 ##########################################
 # 2. Prepare repos and env. variables.
