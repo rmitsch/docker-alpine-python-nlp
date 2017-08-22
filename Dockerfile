@@ -5,6 +5,8 @@ FROM python:3.5-alpine
 # 1. Copy relevant files into container.
 ##########################################
 
+# Copy file with python requirements into container.
+COPY requirements.txt /tmp/requirements.txt
 # Copy file containing commands for installing numpy versus openblas.
 COPY install_numpy_with_openblas.sh /tmp/install_numpy_with_openblas.sh
 
@@ -20,8 +22,11 @@ ENV NUMPY_VERSION="1.13.1" \
 # 3. Install numpy with openblas.
 ##########################################
 
-# Run setup script after making them executable.
+# Run setup scripts after making them executable.
 RUN chmod +x /tmp/install_numpy_with_openblas.sh && \
 	# Workaround to avoid "Text file busy" message.
 	sync && \
- 	./tmp/install_numpy_with_openblas.sh
+	# Install numpy with openblas.
+ 	./tmp/install_numpy_with_openblas.sh && \
+ 	# Install python dependencies.
+	pip install -r /tmp/requirements.txt
