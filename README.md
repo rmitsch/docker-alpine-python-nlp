@@ -1,4 +1,4 @@
-# docker-alpine-python-openblas-numpy
-alpine-based dockerfile with python, openblas and numpy (linked against openblas).
+# docker-alpine-python-gensim
+alpine-based dockerfile with python, openblas, numpy (linked against openblas) and gensim.
 
-Available on dockerhub under rmitsch/alpine-python-openblas-numpy.
+Available on dockerhub under rmitsch/alpine-python-gensim.
