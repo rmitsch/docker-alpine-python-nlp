@@ -29,4 +29,6 @@ RUN chmod +x /tmp/install_numpy_with_openblas.sh && \
 	# Install numpy with openblas.
  	./tmp/install_numpy_with_openblas.sh && \
  	# Install python dependencies.
-	pip install -r /tmp/requirements.txt
+	pip install -r /tmp/requirements.txt && \
+	# Download spacy's model of the english language.
+	python -m spacy download en 
