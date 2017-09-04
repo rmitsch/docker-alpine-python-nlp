@@ -22,8 +22,15 @@ ENV NUMPY_VERSION="1.13.1" \
 # 3. Install numpy with openblas.
 ##########################################
 
-# Run setup scripts after making them executable.
-RUN chmod +x /tmp/install_numpy_with_openblas.sh && \
+RUN apk update && \
+	# Make setup script executable.
+	chmod +x /tmp/install_numpy_with_openblas.sh && \
+	# Install various drivers required by python dependencies.
+	apk add libffi-dev=3.2.1-r2 && \
+	apk add zlib-dev=1.2.11-r0 && \
+	apk add libxml2=2.9.4-r3 && \
+	apk add libxml2-dev=2.9.4-r3 && \
+	apk add libxslt-dev=1.1.29-r1 && \
 	# Workaround to avoid "Text file busy" message.
 	sync && \
 	# Install numpy with openblas.
