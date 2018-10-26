@@ -26,11 +26,7 @@ RUN apk update && \
 	# Make setup script executable.
 	chmod +x /tmp/install_numpy_with_openblas.sh && \
 	# Install various drivers required by python dependencies.
-	apk add libffi-dev=3.2.1-r4 && \
-	apk add zlib-dev=1.2.11-r0 && \
-	apk add libxml2=2.9.4-r3 && \
-	apk add libxml2-dev=2.9.4-r3 && \
-	apk add libxslt-dev=1.1.29-r1 && \
+	apk add libffi-dev=3.2.1-r4 zlib-dev=1.2.11-r1 libxml2=2.9.8-r1 libxml2-dev=2.9.8-r1 libxslt-dev=1.1.32-r0 && \
 	# Workaround to avoid "Text file busy" message.
 	sync && \
 	# Install numpy with openblas.
